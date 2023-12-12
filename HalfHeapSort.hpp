@@ -12,34 +12,25 @@
 // Function 'percDown' performs the percolate down operation in a heap.
 void percDown(std::vector<int>& heap, std::vector<int>::size_type hole)
 {
-    int tmp = std::move(heap[hole]);                    // Store 'hole' element into temporary value.
-    std::vector<int>::size_type child;
-
-                                                         // Continue percolating down while there is at least one left child.
-    while (hole * 2 < heap.size())
+    int tmp = std::move(heap[hole]);                                  //storing 'hole' element into temporary value.              
+    std::vector<int>::size_type child;                                // declare child nodes
+    for (; hole * 2 < heap.size(); hole = child)
     {
-        child = hole * 2;                                  // Left child of 'hole' node.
-
-                                     
-        if (child != heap.size() - 1 && heap[child + 1] < heap[child])     // Compare left and right child, if right child is smaller, move to right child.                 
+        child = hole * 2;                                              //left child of 'hole' node
+        if (child < heap.size() - 1 && heap[child + 1] < heap[child])
         {
-            ++child;
+            ++child;                                                   //if right child is less than leftchild, swap the 'hole' with right child
         }
-
-        // If the child is smaller than the temporary value, move the child up.
         if (heap[child] < tmp)
         {
-            heap[hole] = std::move(heap[child]);
+            heap[hole] = std::move(heap[child]);                       // if either left child or right child is smaller than the temporary value,swap its position with the 'hole' position.
         }
         else
         {
-            break;                                     // If neither child is smaller, break out of the loop.
+            break;
         }
-
-        hole = child;                                 // Move down to the child level.
     }
-
-    heap[hole] = std::move(tmp);                           // Place the temporary value in its correct position.
+    heap[hole] = std::move(tmp);
 }
 
 
@@ -84,12 +75,11 @@ int halfHeapSort(std::vector<int>& nums, int& duration)
         }
     }
 
-    nums.erase(nums.begin());
     auto end = std::chrono::steady_clock::now();
     std::chrono::duration<double, std::micro> elapsed = end - start;
     duration = static_cast<int>(elapsed.count());
 
-    return nums[0];                                  // return the root node, median element
+    return nums[1];                                  // return the root node, median element
 
 
 }
