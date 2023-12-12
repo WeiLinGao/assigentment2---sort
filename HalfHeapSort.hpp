@@ -58,29 +58,28 @@ int halfHeapSort(std::vector<int>& nums, int& duration)
     {
         for (int j = nums.size() - 1; j > s; --j)
         {
-            std::swap(nums[1], nums[j]);               //Swaps the root of the heap (smallest element) with the last unsorted element.
+            std::swap(nums[0], nums[j]);               //Swaps the root of the heap (smallest element) with the last unsorted element.
             nums.pop_back();                            //Removes the sorted element 
-            percDown(nums, 1);                          //Maintain the heap property after swapping.
+            percDown(nums, 0);                          //Maintain the heap property after swapping.
 
         }
     }
     if (a % 2 == 0)
-    {
         for (int j = nums.size() - 1; j >= s; --j)
         {
-            std::swap(nums[1], nums[j]);               //Swaps the root of the heap (smallest element) with the last unsorted element.
+            std::swap(nums[0], nums[j]);               //Swaps the root of the heap (smallest element) with the last unsorted element.
             nums.pop_back();                            //Removes the sorted element 
-            percDown(nums, 1);                          //Maintain the heap property after swapping.
+            percDown(nums, 0);                          //Maintain the heap property after swapping.
 
         }
-    }
+
 
 
     auto end = std::chrono::steady_clock::now();
     std::chrono::duration<double, std::micro> elapsed = end - start;
     duration = static_cast<int>(elapsed.count());
 
-    return nums[0];                                  // return the root node, median element
+    return nums[1];                                  // return the root node, median element
 
 
 }
