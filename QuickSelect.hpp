@@ -4,12 +4,19 @@
 #include <chrono>
 #ifndef QUICKSELECT_HPP
 #define QUICKSELECT_HPP
-
+/*
+CSCI335 Fall 2023
+Assignment 2 – QuickSelect
+WeiLin Gao
+12/12/2023
+QuickSelect.hpp: Finding the median using QuickSelect
+*/
 std::vector<int>::iterator medianofthree(std::vector<int>& nums, std::vector<int>::iterator low, std::vector<int>::iterator high, std::vector<int>::iterator mid)
 {
-	int arr[] = { *low, *mid, *high };
-	std::sort(std::begin(arr), std::end(arr));
-	return std::find(nums.begin(), nums.end(), arr[1]);
+	int arr[] = { *low, *mid, *high };                      // store the value of element in an array
+	std::sort(std::begin(arr), std::end(arr));               // sort the three element
+	return std::find(nums.begin(), nums.end(), arr[1]);     //return the ietrator pointing to the element which is
+	                                                         // the middle value of the sorted array
 }
 
 std::vector<int>::iterator hoarePartition(std::vector<int>& nums, std::vector<int>::iterator low, std::vector<int>::iterator high)
@@ -52,7 +59,12 @@ std::vector<int>::iterator hoarePartition(std::vector<int>& nums, std::vector<in
 
 int quickSelect1(std::vector<int>& nums, std::vector<int>::iterator low, std::vector<int>::iterator high, std::vector<int>::iterator median)
 {
-
+	// Base case: if the subarray size is 10 or less, use std::sort
+	if (std::distance(low, high) <= 10)
+	{
+		std::sort(nums.begin)(),nums.end());
+		return *(low + std::distance(low, median));
+	}
 
 	while (std::distance(low, high) >= 0)
 	{
