@@ -30,6 +30,7 @@ void percDown(std::vector<int>&heap, std::vector<int>::size_type hole)
         {
             break;
         }
+        k=hole*2;
     }
     heap[hole] = std::move(tmp);
 }
