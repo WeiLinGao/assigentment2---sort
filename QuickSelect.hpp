@@ -50,10 +50,10 @@ std::vector<int>::iterator hoarePartition(std::vector<int>& nums, std::vector<in
 	return pivot;                                             //return pivot iterator
 }
 
-int quickSelect1(std::vector<int>& nums, std::vector<int>::iterator low, std::vector<int>::iterator high)
+int quickSelect1(std::vector<int>& nums, std::vector<int>::iterator low, std::vector<int>::iterator high, , std::vector<int>::iterator median)
 {
 	
-	auto median = low + std::distance(low, high) / 2;                         // Find the index of median element
+	                     
 	while (true) 
 	{
 
@@ -81,9 +81,9 @@ int quickSelect(std::vector<int>& nums, int& duration)
 
 	std::vector<int>::iterator low = nums.begin();           
 	std::vector<int>::iterator high = nums.end() - 1;
-
+	std::vector<int>::iterator median = low + std::distance(low, high) / 2;
 	auto start = std::chrono::steady_clock::now();
-	int result = quickSelect1(nums, low, high);                //store the median element into result;
+	int result = quickSelect1(nums, low, high,median);                //store the median element into result;
 
 	auto end = std::chrono::steady_clock::now();
 
@@ -96,6 +96,3 @@ int quickSelect(std::vector<int>& nums, int& duration)
 	
 
 }
-
-
-#endif
