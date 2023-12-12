@@ -4,7 +4,14 @@
 #include <chrono>
 #ifndef MERGESORT_HPP
 #define MERGESORT_HPP
-
+/*
+CSCI335 Fall 2023
+Assignment 2 – MergeSort
+WeiLin Gao
+12/12/2023
+MergeSort: Finding the median using MergeSort
+implement the recursive part of the merge sort, and use std::merge for the merging.
+*/
 void mergeSortHelp(std::vector<int>& nums, int& duration, std::vector<int>::iterator start, std::vector<int>::iterator end)
 {
 	if (std::distance(start, end) > 1)
@@ -29,7 +36,8 @@ int mergeSort(std::vector<int>& nums, int& duration)
 	mergeSortHelp(nums, duration, start, end);
 	auto endTime = std::chrono::steady_clock::now();
 
-	duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime).count();
+	std::chrono::duration<double, std::micro> elapsed = endTime - startTime;
+	duration = static_cast<int>(elapsed.count());
 
 	// Returns the median or the element before it for even-sized vectors.
 	if (nums.size() % 2 == 0)
