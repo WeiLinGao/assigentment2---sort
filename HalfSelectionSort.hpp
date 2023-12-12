@@ -41,7 +41,7 @@ int halfSelectionSort(std::vector<int>& nums, int& duration)
     auto start = std::chrono::steady_clock::now();
 
     // Loop through the first half of the vector, finding the smallest element and swapping it.
-    for (auto a = nums.begin(); a != nums.begin() + nums.size() / 2 ; a++)  // iterate through first half of the vector then stop.
+    for (auto a = nums.begin(); a != nums.begin() + nums.size() / 2+1; a++)  // iterate through first half of the vector then stop.
     {
         auto smallest = findSmallest(a, nums.end());
         int temp = *a;
