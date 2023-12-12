@@ -53,6 +53,13 @@ int halfSelectionSort(std::vector<int>& nums, int& duration)
   
     duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
 
+    std::cout << "Sorted Vector: ";
+    for (const auto& num : nums) 
+    {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
+
     if (nums.size() % 2 == 0)            // Return the median element or the one before it for even-sized vectors.
     {
         return nums[nums.size() / 2 -1];
@@ -65,10 +72,6 @@ int halfSelectionSort(std::vector<int>& nums, int& duration)
 }
 
 #endif
-
-
-
-
 
 
 
