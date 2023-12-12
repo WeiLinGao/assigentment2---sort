@@ -27,8 +27,7 @@ int inPlaceMergeSort(std::vector<int>& nums, int& duration)
 
 	auto endTime = std::chrono::steady_clock::now(); 
 
-	std::chrono::duration<double, std::micro> elapsed = endTime - startTime;
-	duration = static_cast<int>(elapsed.count());
+	 duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime).count();
 
 
 	// Returns the median or the element before it for even-sized vectors.
