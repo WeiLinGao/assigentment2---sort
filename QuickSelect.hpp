@@ -7,41 +7,10 @@
 
 std::vector<int>::iterator medianofthree(std::vector<int>& nums, std::vector<int>::iterator low, std::vector<int>::iterator high, std::vector<int>::iterator mid)
 {
-	if (*low > *mid && *low > *high && *mid > *low)                   
-	{                                   
-		return mid;
-	}
-	                                                                   //  Find the median of the chosen elements(first element, median element, and last element)
-	else if (*low > *mid && *low > *high && *high > *mid)                     
-	{
-		return high;                                                   //comparing the 3 elements and return the selected element that fulfil the condition
-
-	}                                                                  // The chosen element will be the pivot for hoare partitioon
-	else if (*low > *mid && *low < *high && *high > *mid)
-	{
-		return low;
-	}
-	else if (*low < *mid && *low > *high && *high < *mid)
-	{
-		return low;
-	}
-	else if (*low < *mid && *low < *high && *high < *mid)
-	{
-		return high;
-	}
-
-	else if (*low < *mid && *low < *high && *high > *mid)
-	{
-		return mid;
-	}
-
-	else
-	{
-		return mid;
-	}
-	
+	int arr[] = { *low, *mid, *high };
+	std::sort(std::begin(arr), std::end(arr));
+	return std::find(nums.begin(), nums.end(), arr[1]);
 }
-
 
 std::vector<int>::iterator hoarePartition(std::vector<int>& nums, std::vector<int>::iterator low, std::vector<int>::iterator high)
 {
@@ -125,9 +94,9 @@ int quickSelect(std::vector<int>& nums, int& duration)
 
 	
 
-	
-
 }
 
 
 #endif
+
+
