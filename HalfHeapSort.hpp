@@ -6,7 +6,13 @@
 #ifndef HALFHEAPSORT_HPP
 #define HALFHEAPSORT_HPP
 
-
+/*
+CSCI335 Fall 2023
+Assignment 2 – HalfHeapSort
+WeiLin Gao
+12/12/2023
+HalfHeapSort.hpp: Finding the median using HalfHeapSort
+*/
 
 
 // Function 'percDown' performs the percolate down operation in a heap.
