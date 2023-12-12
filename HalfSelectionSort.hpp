@@ -53,10 +53,7 @@ int halfSelectionSort(std::vector<int>& nums, int& duration)
 
   
 
-    if (nums.size() % 2 == 0)            // Return the median element or the one before it for even-sized vectors.
-    {
-        return nums[nums.size() / 2 - 1];
-    }
+
 
 
     return nums[nums.size() / 2];
