@@ -53,10 +53,10 @@ int halfHeapSort(std::vector<int>& nums, int& duration)
 
     buildHeap(nums);                                  // performing build min-heap
     int s = nums.size() / 2+1;              // sorting half of the vector and pause
-
+    int size = nums.size() - 1;
     if (a % 2 != 0)
     {
-        for (int j = nums.size() ; j > s; --j)
+        for (int j = size; j > s; --j)
         {
             std::swap(nums[1], nums[j]);               //Swaps the root of the heap (smallest element) with the last unsorted element.
             nums.pop_back();                            //Removes the sorted element 
@@ -66,7 +66,7 @@ int halfHeapSort(std::vector<int>& nums, int& duration)
     }
     if (a % 2 == 0)
     {
-        for (int j = nums.size() ; j >= s; --j)
+        for (int j = size; j >= s; --j)
         {
             std::swap(nums[1], nums[j]);               //Swaps the root of the heap (smallest element) with the last unsorted element.
             nums.pop_back();                            //Removes the sorted element 
