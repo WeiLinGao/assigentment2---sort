@@ -44,16 +44,19 @@ int halfSelectionSort(std::vector<int>& nums, int& duration)
     for (auto a = nums.begin(); a != nums.begin() + nums.size() / 2  ; ++a)  // iterate through first half of the vector then stop.
     {
         auto smallest = findSmallest(a, nums.end());
-        std::swap(*a, *smallest);
+        int temp = *a;
+        *a = *smallest;
+        *smallest = temp;
     }
     auto end = std::chrono::steady_clock::now();
 
 
     duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
 
-  
-
-
+    if (nums.size() % 2 == 0)            // Return the median element or the one before it for even-sized vectors.
+    {
+        return nums[nums.size() / 2 - 1];
+    }
 
 
     return nums[nums.size() / 2];
