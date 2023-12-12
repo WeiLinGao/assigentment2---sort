@@ -20,17 +20,17 @@ std::vector<int>::iterator hoarePartition(std::vector<int>& nums, std::vector<in
 	std::iter_swap(pivot, high);                             // swap the chosen pivot with the last element
 	pivot = high;                                               // pivot is now pointing to last element
 	std::vector<int>::iterator i = low;                     // declare an iterator i and point to first element
-	std::vector<int>::iterator j = pivot-1;                  // delcar an iterator j and point to second to last element
+	std::vector<int>::iterator j = pivot - 1;                  // delcar an iterator j and point to second to last element
 
 
 	while (true)
 	{
 		while (*i < *pivot)                                // while element i is less than pivot element
-		{ 
+		{
 			i++;                                            //increment i position
 		}
 		while (*j > *pivot && j > low)                      //while element j is greater than pivot element
-		{  
+		{
 			j--;                                            //decrement j position
 		}
 
@@ -40,7 +40,7 @@ std::vector<int>::iterator hoarePartition(std::vector<int>& nums, std::vector<in
 		}
 
 		std::iter_swap(i, j);                                 // Else: if i is greater than pivot and j is less than pivot
-		                                                       // swap i with j
+		// swap i with j
 		i++;                                                   //increment i               
 		j--;                                                   //decrement j
 	}
@@ -52,38 +52,40 @@ std::vector<int>::iterator hoarePartition(std::vector<int>& nums, std::vector<in
 
 int quickSelect1(std::vector<int>& nums, std::vector<int>::iterator low, std::vector<int>::iterator high, std::vector<int>::iterator median)
 {
-	
-	                     
-	while (true) 
+
+
+	while (low <= high)
 	{
 
 		std::vector<int>::iterator pivot = hoarePartition(nums, low, high);   // Find the pivot using hoare partition
 
 		if (pivot == median)                                    // if pivot position is equal to median position , return the current pivot element(median element)
 		{
-			return *pivot; 
+			return *pivot;
 		}
 		else if (pivot > median)                               // if pivot position is greater than median , recurse on the left side;
 		{
 
-			high = pivot - 1;                           
+			high = pivot - 1;
 		}
 		else                                                   // if pivot position is less than median, recurse on the right side;
-		{     
-			low = pivot + 1; 
+		{
+			low = pivot + 1;
 		}
 	}
 
+	return -1;
+
 }
 
-int quickSelect(std::vector<int>& nums, int& duration) 
+int quickSelect(std::vector<int>& nums, int& duration)
 {
 
-	std::vector<int>::iterator low = nums.begin();           
+	std::vector<int>::iterator low = nums.begin();
 	std::vector<int>::iterator high = nums.end() - 1;
 	std::vector<int>::iterator median = low + std::distance(low, high) / 2;
 	auto start = std::chrono::steady_clock::now();
-	int result = quickSelect1(nums, low, high,median);                //store the median element into result;
+	int result = quickSelect1(nums, low, high, median);                //store the median element into result;
 
 	auto end = std::chrono::steady_clock::now();
 
@@ -93,7 +95,7 @@ int quickSelect(std::vector<int>& nums, int& duration)
 
 	return result;                                             //return median element
 
-	
+
 
 }
 #endif
