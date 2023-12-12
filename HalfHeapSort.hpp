@@ -17,7 +17,7 @@ void percDown(std::vector<int>&heap, std::vector<int>::size_type hole)
     for (; hole * 2 < heap.size(); hole = child)                     
     {
         child = hole * 2;                                              //left child of 'hole' node
-        if (child != s && heap[child + 1] < heap[child])    
+        if (child != s && heap[child ] < heap[child])    
         {
             ++child;                                                   //if right child is less than leftchild, swap the 'hole' with right child
         }
