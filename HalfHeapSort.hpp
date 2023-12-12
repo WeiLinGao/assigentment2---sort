@@ -60,9 +60,9 @@ int halfHeapSort(std::vector<int>& nums, int& duration)
     {
         for (int j = size; j > s; --j)
         {
-            std::swap(nums[0], nums[j]);               //Swaps the root of the heap (smallest element) with the last unsorted element.
+            std::swap(nums[1], nums[j]);               //Swaps the root of the heap (smallest element) with the last unsorted element.
             nums.pop_back();                            //Removes the sorted element 
-            percDown(nums, 0);                          //Maintain the heap property after swapping.
+            percDown(nums, 1);                          //Maintain the heap property after swapping.
 
         }
     }
@@ -70,9 +70,9 @@ int halfHeapSort(std::vector<int>& nums, int& duration)
     {
         for (int j = size; j >= s; --j)
         {
-            std::swap(nums[0], nums[j]);               //Swaps the root of the heap (smallest element) with the last unsorted element.
+            std::swap(nums[1], nums[j]);               //Swaps the root of the heap (smallest element) with the last unsorted element.
             nums.pop_back();                            //Removes the sorted element 
-            percDown(nums, 0);                          //Maintain the heap property after swapping.
+            percDown(nums, 1);                          //Maintain the heap property after swapping.
 
         }
     }
