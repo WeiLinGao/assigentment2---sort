@@ -36,7 +36,8 @@ void percDown(std::vector<int>&heap, std::vector<int>::size_type hole)
 // Function 'buildHeap' constructs a min-heap
 void buildHeap(std::vector<int>& heap)
 {
-    for (int i = (heap.size()-1)/2; i >= 1; --i)          // building a min heap, starting from the first non leaf node elemnt
+    int a = (heap.size() - 1) / 2;
+    for (int i = a; i >= 1; --i)          // building a min heap, starting from the first non leaf node elemnt
     {
         percDown(heap, i);
     }
@@ -55,7 +56,7 @@ int halfHeapSort(std::vector<int>& nums, int& duration)
 
     if (a % 2 != 0)
     {
-        for (int j = nums.size() - 1; j > s; --j)
+        for (int j = nums.size() ; j > s; --j)
         {
             std::swap(nums[1], nums[j]);               //Swaps the root of the heap (smallest element) with the last unsorted element.
             nums.pop_back();                            //Removes the sorted element 
@@ -64,13 +65,16 @@ int halfHeapSort(std::vector<int>& nums, int& duration)
         }
     }
     if (a % 2 == 0)
-    for (int j = nums.size()-1; j >=s; --j)
     {
-        std::swap(nums[1], nums[j]);               //Swaps the root of the heap (smallest element) with the last unsorted element.
-        nums.pop_back();                            //Removes the sorted element 
-        percDown(nums, 1);                          //Maintain the heap property after swapping.
-       
+        for (int j = nums.size() ; j >= s; --j)
+        {
+            std::swap(nums[1], nums[j]);               //Swaps the root of the heap (smallest element) with the last unsorted element.
+            nums.pop_back();                            //Removes the sorted element 
+            percDown(nums, 1);                          //Maintain the heap property after swapping.
+
+        }
     }
+
 
     nums.erase(nums.begin());                        // erase empty index 0
 
@@ -83,28 +87,5 @@ int halfHeapSort(std::vector<int>& nums, int& duration)
   
 }
 
-/*
-int leftChild(int i)
-{
-    return 2 * i;
-}
-void percDown(std::vector<int>& a, int i)
-{
-    int child;
-    int tmp;
 
-    for (tmp = std::move(a[i]); leftChild(i) < a.size(); i = child)
-    {
-        child = leftChild(i);
-        if (child < a.size()-1 && a[child+1] < a[child ])
-            ++child;
-        if (tmp > a[child])
-            a[i] = std::move(a[child]);
-        else
-            break;
-    }
-    a[i] = std::move(tmp);
-}
-*/
 #endif
-
