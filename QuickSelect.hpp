@@ -65,16 +65,17 @@ int quickSelect1(std::vector<int>& nums, std::vector<int>::iterator low, std::ve
 		}
 		else if (pivot > median)                               // if pivot position is greater than median , recurse on the left side;
 		{
-			high = pivot - 1;                           
+
+			high = pivot;
 		}
 		else                                                   // if pivot position is less than median, recurse on the right side;
 		{     
-			low = pivot + 1; 
+			low = std::next(pivot);
+
 		}
 	}
 
 }
-
 int quickSelect(std::vector<int>& nums, int& duration) 
 {
 
