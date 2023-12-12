@@ -36,12 +36,12 @@ int halfSelectionSort(std::vector<int>& nums, int& duration)
         return -1;
     }
 
-    int half = nums.size() / 2+1;
+   
 
     auto start = std::chrono::steady_clock::now();
 
     // Loop through the first half of the vector, finding the smallest element and swapping it.
-    for (auto a = nums.begin(); a != nums.begin() + half; a++)  // iterate through first half of the vector then stop.
+    for (auto a = nums.begin(); a != nums.begin() + nums.size() / 2 +1; a++)  // iterate through first half of the vector then stop.
     {
         auto smallest = findSmallest(a, nums.end());
         int temp = *a;
@@ -51,22 +51,24 @@ int halfSelectionSort(std::vector<int>& nums, int& duration)
     auto end = std::chrono::steady_clock::now(); 
 
   
-
-    // Calculate and set the duration of the sorting operation
     duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
 
     if (nums.size() % 2 == 0)            // Return the median element or the one before it for even-sized vectors.
     {
-        return nums[half-1];
+        return nums[nums.size() / 2 -1];
     }
 
 
-    return nums[half];
+    return nums[nums.size() / 2];
 
 
 }
 
 #endif
+
+
+
+
 
 
 
