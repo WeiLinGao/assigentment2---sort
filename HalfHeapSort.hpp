@@ -7,34 +7,27 @@
 
 
 
-
-// Function 'percDown' performs the percolate down operation in a heap.
-void percDown(std::vector<int>&heap, std::vector<int>::size_type hole)
+int leftChild(int i)
 {
-    int tmp = std::move(heap[hole]);                                  //storing 'hole' element into temporary value.              
-    std::vector<int>::size_type child;                                // declare child nodes
-    int s = heap.size() - 1;
-    std::vector<int>::size_type k = hole * 2;
-    for (; k < heap.size(); hole = child)                     
-    {
-        child = k;                                              //left child of 'hole' node
-        if (child != s && heap[child+1 ] < heap[child])    
-        {
-            ++child;                                                   //if right child is less than leftchild, swap the 'hole' with right child
-        }
-        if (heap[child] < tmp)
-        {
-            heap[hole] = std::move(heap[child]);                       // if either left child or right child is smaller than the temporary value,swap its position with the 'hole' position.
-        }
-        else
-        {
-            break;
-        }
-        k=hole*2;
-    }
-    heap[hole] = std::move(tmp);
+    return 2 * i;
 }
+void percDown(std::vector<int>& a, int i)
+{
+    int child;
+    int tmp;
 
+    for (tmp = std::move(a[i]); leftChild(i) < a.size(); i = child)
+    {
+        child = leftChild(i);
+        if (child < a.size() - 1 && a[child + 1] < a[child])
+            ++child;
+        if (tmp > a[child])
+            a[i] = std::move(a[child]);
+        else
+            break;
+    }
+    a[i] = std::move(tmp);
+}
 // Function 'buildHeap' constructs a min-heap
 void buildHeap(std::vector<int>& heap)
 {
