@@ -50,7 +50,7 @@ std::vector<int>::iterator hoarePartition(std::vector<int>& nums, std::vector<in
 	return pivot;                                             //return pivot iterator
 }
 
-int quickSelect1(std::vector<int>& nums, std::vector<int>::iterator low, std::vector<int>::iterator high, , std::vector<int>::iterator median)
+int quickSelect1(std::vector<int>& nums, std::vector<int>::iterator low, std::vector<int>::iterator high, std::vector<int>::iterator median)
 {
 	
 	                     
