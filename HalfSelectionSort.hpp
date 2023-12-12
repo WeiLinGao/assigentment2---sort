@@ -30,11 +30,7 @@ std::vector<int>::iterator findSmallest(std::vector<int>::iterator start, std::v
 int halfSelectionSort(std::vector<int>& nums, int& duration)
 {
     // If input size is too big, selection sort isn't performed and an error message is displayed.
-    if (nums.size() >= 50000)
-    {
-        std::cout << "Input size is too big for selection sort" << std::endl;
-        return -1;
-    }
+
 
 
 
