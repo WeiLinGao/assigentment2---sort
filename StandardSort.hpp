@@ -4,7 +4,14 @@
 #include <chrono>
 #ifndef STANDARDSORT_HPP
 #define STANDARDSORT_HPP
-
+/*
+CSCI335 Fall 2023
+Assignment 2 – StandardSort
+WeiLin Gao
+12/12/2023
+StandardSort.hpp: Finding the median using standardsort (std::sort)
+Use std::sort to sort the list, then simply check the middle element.
+*/
 int standardSort(std::vector<int>& nums, int& duration)
 {
     auto start = std::chrono::steady_clock::now();
