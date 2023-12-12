@@ -65,6 +65,7 @@ int halfHeapSort(std::vector<int>& nums, int& duration)
         }
     }
     if (a % 2 == 0)
+    {
         for (int j = nums.size() - 1; j >= s; --j)
         {
             std::swap(nums[1], nums[j]);               //Swaps the root of the heap (smallest element) with the last unsorted element.
@@ -72,8 +73,8 @@ int halfHeapSort(std::vector<int>& nums, int& duration)
             percDown(nums, 1);                          //Maintain the heap property after swapping.
 
         }
+    }
 
-    nums.erase(nums.begin());                        // erase empty index 0
 
     auto end = std::chrono::steady_clock::now();
     std::chrono::duration<double, std::micro> elapsed = end - start;
