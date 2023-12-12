@@ -54,7 +54,7 @@ int quickSelect1(std::vector<int>& nums, std::vector<int>::iterator low, std::ve
 {
 
 
-	while (low <= high)
+	while (std::distance(low, high) >= 0)
 	{
 
 		std::vector<int>::iterator pivot = hoarePartition(nums, low, high);   // Find the pivot using hoare partition
@@ -74,7 +74,6 @@ int quickSelect1(std::vector<int>& nums, std::vector<int>::iterator low, std::ve
 		}
 	}
 
-	return -1;
 
 }
 
