@@ -37,7 +37,7 @@ void percDown(std::vector<int>& heap, std::vector<int>::size_type hole)
 // Function 'buildHeap' constructs a min-heap
 void buildHeap(std::vector<int>& heap)
 {
-    for (int i = (heap.size() - 1) / 2; i >= 1; --i)          // building a min heap, starting from the first non leaf node elemnt
+    for (int i = (heap.size() - 1) / 2; i >= 0; --i)          // building a min heap, starting from the first non leaf node elemnt
     {
         percDown(heap, i);
     }
@@ -65,6 +65,7 @@ int halfHeapSort(std::vector<int>& nums, int& duration)
         }
     }
     if (a % 2 == 0)
+    {
         for (int j = nums.size() - 1; j >= s; --j)
         {
             std::swap(nums[0], nums[j]);               //Swaps the root of the heap (smallest element) with the last unsorted element.
@@ -72,7 +73,7 @@ int halfHeapSort(std::vector<int>& nums, int& duration)
             percDown(nums, 0);                          //Maintain the heap property after swapping.
 
         }
-
+    }
 
 
     auto end = std::chrono::steady_clock::now();
