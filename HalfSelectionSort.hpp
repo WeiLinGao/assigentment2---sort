@@ -9,11 +9,11 @@
 std::vector<int>::iterator findSmallest(std::vector<int>::iterator start, std::vector<int>::iterator end)
 {
     if (start == end)                           // passing the current index of nums and nums.end();
-    { 
-        return start;                       
+    {
+        return start;
     }
 
-    auto smallest = start;                               
+    auto smallest = start;
 
     for (auto it = start + 1; it != end; it++)   // finding the samllest element and swap with currrent index.
     {
@@ -36,33 +36,28 @@ int halfSelectionSort(std::vector<int>& nums, int& duration)
         return -1;
     }
 
-   
+
 
     auto start = std::chrono::steady_clock::now();
 
     // Loop through the first half of the vector, finding the smallest element and swapping it.
-    for (auto a = nums.begin(); a != nums.begin() + nums.size() / 2+1; a++)  // iterate through first half of the vector then stop.
+    for (auto a = nums.begin(); a != nums.begin() + nums.size() / 2; a++)  // iterate through first half of the vector then stop.
     {
         auto smallest = findSmallest(a, nums.end());
         int temp = *a;
         *a = *smallest;
         *smallest = temp;
     }
-    auto end = std::chrono::steady_clock::now(); 
+    auto end = std::chrono::steady_clock::now();
 
-  
+
     duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
 
-    std::cout << "Sorted Vector: ";
-    for (const auto& num : nums) 
-    {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
+  
 
     if (nums.size() % 2 == 0)            // Return the median element or the one before it for even-sized vectors.
     {
-        return nums[nums.size() / 2 -1];
+        return nums[nums.size() / 2 - 1];
     }
 
 
@@ -72,9 +67,3 @@ int halfSelectionSort(std::vector<int>& nums, int& duration)
 }
 
 #endif
-
-
-
-
-
-
