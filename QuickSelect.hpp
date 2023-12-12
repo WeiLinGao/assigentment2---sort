@@ -59,7 +59,12 @@ std::vector<int>::iterator hoarePartition(std::vector<int>& nums, std::vector<in
 
 int quickSelect1(std::vector<int>& nums, std::vector<int>::iterator low, std::vector<int>::iterator high, std::vector<int>::iterator median)
 {
-	
+	// Base case: if the subarray size is 10 or less, use std::sort
+	if (std::distance(low, high) <= 10)
+	{
+		std::sort(nums.begin(), nums.end());
+		return *(low + std::distance(low, median));
+	}
 	while (std::distance(low, high) >= 0)
 	{
 
