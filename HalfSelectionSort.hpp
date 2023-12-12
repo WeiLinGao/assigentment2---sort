@@ -51,9 +51,9 @@ int halfSelectionSort(std::vector<int>& nums, int& duration)
     auto end = std::chrono::steady_clock::now(); 
 
   
-    std::chrono::duration<double, std::micro> elapsed = end - start;
+
     // Calculate and set the duration of the sorting operation
-    duration = static_cast<int>(elapsed.count());
+    duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
 
     if (nums.size() % 2 == 0)            // Return the median element or the one before it for even-sized vectors.
     {
