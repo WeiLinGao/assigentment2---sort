@@ -67,7 +67,7 @@ int quickSelect1(std::vector<int>& nums, std::vector<int>::iterator low, std::ve
 		if (std::distance(low, high) <= 10)
 		{
 			std::sort(low, high+1);  
-			return *(low + std::distance(low, median));
+			return *median;
 		}
 
 
