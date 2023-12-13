@@ -18,7 +18,7 @@ void mergeSortHelp1(std::vector<int>& nums, int& duration, std::vector<int>::ite
 	{
 		auto mid = start + distance(start, end) / 2;                 // Calculates the midpoint of the current range to divide it into two halves.
 		mergeSortHelp1(nums, duration, start, mid);                 // Recursively calls mergeSortHelp1 to sort the left and right halves of the range.
-        mergeSortHelp1(nums, duration, mid, end);
+		mergeSortHelp1(nums, duration, mid, end);
 		std::inplace_merge(start, mid, end);                       // Performs an in-place merge to merge the sorted left and right halves back into the original range.
 	}
 	
