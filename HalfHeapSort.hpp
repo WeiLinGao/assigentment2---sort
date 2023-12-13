@@ -15,7 +15,7 @@ HalfHeapSort.hpp: Finding the median using HalfHeapSort
 */
 
 
-
+/*
 // Function 'percDown' performs the percolate down operation in a heap.
 void percDown(std::vector<int>& heap, std::vector<int>::size_type hole)
 {
@@ -39,7 +39,39 @@ void percDown(std::vector<int>& heap, std::vector<int>::size_type hole)
     }
     heap[hole] = std::move(tmp);
 }
+*/
 
+
+int leftChild(int i)
+{
+    return 2 * i;
+}
+void percDown(std::vector<int>& a, int i)
+{
+    int child;
+    int tmp = std::move(a[i]);
+
+    for (; leftChild(i) < a.size(); i = child)
+    {
+        child = leftChild(i);
+        if (child < a.size() - 1 && a[child + 1] < a[child])
+        {
+            ++child;
+        }
+            
+        if (tmp > a[child])
+        {
+            a[i] = std::move(a[child]);
+        }
+            
+        else
+        {
+            break;
+        }
+         
+    }
+    a[i] = std::move(tmp);
+}
 
 // Function 'buildHeap' constructs a min-heap
 void buildHeap(std::vector<int>& heap)
