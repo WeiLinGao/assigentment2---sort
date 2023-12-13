@@ -66,7 +66,7 @@ int quickSelect1(std::vector<int>& nums, std::vector<int>::iterator low, std::ve
 		// Base case: if the subarray size is 10 or less, use std::sort
 		if (std::distance(low, high) <= 10)
 		{
-			std::sort(low, high);  
+			std::sort(low, high+1);  
 			return *(low + std::distance(low, median));
 		}
 
