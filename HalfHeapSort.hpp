@@ -15,15 +15,16 @@ HalfHeapSort.hpp: Finding the median using HalfHeapSort
 */
 
 
+
 // Function 'percDown' performs the percolate down operation in a heap.
 void percDown(std::vector<int>& heap, std::vector<int>::size_type hole)
 {
     int tmp = std::move(heap[hole]);                                  //storing 'hole' element into temporary value.              
     std::vector<int>::size_type child;                                // declare child nodes
-    for (; hole * 2 <=heap.size()-1; hole = child)
+    for (; hole * 2 < heap.size(); hole = child)
     {
         child = hole * 2;                                              //left child of 'hole' node
-        if (child +1 <= heap.size()-1&& heap[child + 1] < heap[child])
+        if (child < heap.size() - 1 && heap[child + 1] < heap[child])
         {
             ++child;                                                   //if right child is less than leftchild, swap the 'hole' with right child
         }
