@@ -44,35 +44,32 @@ void percDown(std::vector<int>& heap, std::vector<int>::size_type hole)
 
 int leftChild(int i)
 {
-    return 2 * i;
+    return 2 * i +1;
 }
-void percDown(std::vector<int>& a, int i)
+void percDown(std::vector<int>& heap, std::vector<int>::size_type hole)
 {
     int child;
-    int tmp = std::move(a[i]);
+    int tmp = std::move(heap[hole]);
 
-    for (; leftChild(i) < a.size(); i = child)
+    for (; leftChild(hole) < heap.size(); hole = child)
     {
-        child = leftChild(i);
-        if (child < a.size() - 1 && a[child + 1] < a[child])
+        child = leftChild(hole);
+        if (child < heap.size() - 1 && heap[child + 1] < heap[child])
         {
             ++child;
         }
-            
-        if (tmp > a[child])
+
+        if (tmp > heap[child])
         {
-            a[i] = std::move(a[child]);
+            heap[hole] = std::move(heap[child]);
         }
-            
         else
         {
             break;
         }
-         
     }
-    a[i] = std::move(tmp);
+    heap[hole] = std::move(tmp);
 }
-
 // Function 'buildHeap' constructs a min-heap
 void buildHeap(std::vector<int>& heap)
 {
