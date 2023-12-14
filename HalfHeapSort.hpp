@@ -44,7 +44,7 @@ void percDown(std::vector<int>& heap, std::vector<int>::size_type hole)
 
 int leftChild(int i)
 {
-    return 2 * i +1;
+    return 2 * i ;
 }
 void percDown(std::vector<int>& heap, std::vector<int>::size_type hole)
 {
