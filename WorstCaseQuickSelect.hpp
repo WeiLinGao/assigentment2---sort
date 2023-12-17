@@ -20,7 +20,7 @@ std::vector<int> worstCaseQuickSelect()
 
     std::vector<int> worstCaseQuickSelect;
    
-    for (int i = 1; i <= 20000; ++i)              // fill the vector with value from 1-20000
+    for (int i = 20000; i >=1; --i)              // fill the vector with value from 20000-1
     {
         worstCaseQuickSelect.push_back(i);
     }
